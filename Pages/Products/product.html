@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Upload</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 min-h-screen flex items-center justify-center p-4"
+  >
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+      <h2 class="text-3xl font-bold text-center mb-8 text-purple-700">
+        Upload New Product
+      </h2>
+      <form
+        action="#"
+        method="POST"
+        class="space-y-6"
+        enctype="multipart/form-data"
+      >
+        <div>
+          <label
+            for="product_name"
+            class="block text-sm font-medium text-gray-700"
+            >Product Name</label
+          >
+          <input
+            type="text"
+            id="product_name"
+            name="product_name"
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+          />
+        </div>
+        <div>
+          <label
+            for="product_description"
+            class="block text-sm font-medium text-gray-700"
+            >Product Description</label
+          >
+          <textarea
+            id="product_description"
+            name="product_description"
+            rows="4"
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+          ></textarea>
+        </div>
+        <div>
+          <label
+            for="product_price"
+            class="block text-sm font-medium text-gray-700"
+            >Product Price (Rs)</label
+          >
+          <input
+            type="number"
+            id="product_price"
+            name="product_price"
+            step="0.01"
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+          />
+        </div>
+        <div>
+          <label
+            for="product_image"
+            class="block text-sm font-medium text-gray-700"
+            >Product Image</label
+          >
+          <input
+            type="file"
+            id="product_image"
+            name="product_image"
+            accept="image/*"
+            required
+            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+          />
+        </div>
+        <div>
+          <button
+            onclick="uploadProd()"
+            type="button"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+          >
+            Upload Product
+          </button>
+        </div>
+      </form>
+      <p class="mt-6 text-center text-gray-600">
+        <a
+          href="./../../index.html"
+          class="text-purple-600 font-medium hover:text-purple-500"
+          >Back to Dashboard</a
+        >
+      </p>
+    </div>
+    <script type="module" src="./product.js"></script>
+  </body>
+</html>

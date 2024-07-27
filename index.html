@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Catalog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 min-h-screen flex flex-col"
+  >
+    <!-- Header -->
+    <header class="bg-white p-4 shadow-md">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-purple-700">Shopping-Mania</h1>
+        <nav class="space-x-4">
+          <a href="#" class="text-gray-900 hover:text-purple-600">Home</a>
+          <a href="#" class="text-gray-900 hover:text-purple-600">Products</a>
+          <a href="#" class="text-gray-900 hover:text-purple-600">Contact</a>
+          <a
+            href="./Pages/Products/product.html"
+            id="upload"
+            class="text-gray-900 hover:text-purple-600 hidden"
+            >Upload Product</a
+          >
+
+          <a
+            id="login"
+            href="./Pages/Login/login.html"
+            class="text-gray-900 hover:text-purple-600"
+            >Login</a
+          >
+          <a
+            id="signup"
+            href="./Pages/Sign-Up/signup.html"
+            class="text-gray-900 hover:text-purple-600"
+            >Sign up</a
+          >
+          <button
+            onclick="logout()"
+            id="logout"
+            class="text-gray-900 hover:text-purple-600 hidden"
+          >
+            Logout
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Product Grid -->
+    <main
+      class="flex-grow p-8 bg-white shadow-lg rounded-lg mx-4 my-8 max-w-6xl mx-auto"
+    >
+      <h2 class="text-3xl font-bold text-purple-700 mb-8 text-center">
+        Product Catalog
+      </h2>
+      <div
+        id="productContent"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <!-- Product Card 1 -->
+        <!-- <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+          <img
+            src="https://via.placeholder.com/300"
+            alt="Product Image"
+            class="w-full h-48 object-cover rounded-md mb-4"
+          />
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">
+            Product Name 1
+          </h3>
+          <p class="text-gray-600 mb-2">
+            A brief description of the product. It includes key features and
+            details.
+          </p>
+          <p class="text-xl font-bold text-gray-900 mb-4">$19.99</p>
+          <a
+            href="#"
+            class="block text-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+            >View Details</a
+          >
+        </div> -->
+
+        <!-- Add more product cards as needed -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white p-8 shadow-md mt-8">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- About Us -->
+        <div>
+          <h3 class="text-lg font-semibold text-purple-700 mb-4">About Us</h3>
+          <p class="text-gray-600 mb-4">
+            We are dedicated to providing the best products and services to our
+            customers. Our platform offers a wide range of products to meet your
+            needs.
+          </p>
+          <a href="#" class="text-purple-600 hover:text-purple-700"
+            >Learn More</a
+          >
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold text-purple-700 mb-4">
+            Quick Links
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="text-gray-600 hover:text-purple-600">Home</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-purple-600"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-purple-600"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-purple-600">FAQs</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-purple-600"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-lg font-semibold text-purple-700 mb-4">Contact Us</h3>
+          <p class="text-gray-600 mb-2">123 Shopping-Mania St.</p>
+          <p class="text-gray-600 mb-2">Suite 456</p>
+          <p class="text-gray-600 mb-2">City, State, 12345</p>
+          <p class="text-gray-600 mb-2">Email: support@example.com</p>
+          <p class="text-gray-600">Phone: (123) 456-7890</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-600 hover:text-purple-600"
+              ><svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12h18M3 12l9 9m0-18l9 9"
+                ></path></svg
+            ></a>
+            <a href="#" class="text-gray-600 hover:text-purple-600"
+              ><svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 8h10M7 12h10m-5 4h5M3 6h18M3 18h18"
+                ></path></svg
+            ></a>
+            <a href="#" class="text-gray-600 hover:text-purple-600"
+              ><svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12h18M3 12l9 9m0-18l9 9"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-gray-600 mt-8">
+        <p>&copy; 2024 Shopping-Mania . All rights reserved.</p>
+      </div>
+    </footer>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
