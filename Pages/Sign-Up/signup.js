@@ -1,11 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyABXqdjKb0eIC6hns3XduVNOfRFkoVyv4E",
     authDomain: "shopping-mania-ecebd.firebaseapp.com",
@@ -20,37 +18,37 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
-
+const db = getFirestore();
 
 window.signUp = () => {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
 
-
     let obj = {
         name: name.value,
         email: email.value,
         password: password.value
-    }
-
+    };
 
     createUserWithEmailAndPassword(auth, obj.email, obj.password)
         .then((res) => {
-            const refernce = doc(db, "users", obj.id);
-            setDoc(refernce, obj)
+            obj.id = res.user.uid; // Set user ID
+
+            // Remove password before saving to Firestore
+            delete obj.password;
+
+            const reference = doc(db, "users", obj.id);
+            setDoc(reference, obj)
                 .then(() => {
-                    const userObj = JSON.stringify(obj);
-                    localStorage.setItem("user", userObj);
-                    window.location.replace("../../index.html");
+                    localStorage.setItem("user", JSON.stringify(obj)); // Save sanitized user object
+                    window.location.replace("../../index.html"); // Redirect to home page
                 })
                 .catch((err) => {
-                    alert(err.message);
+                    alert(err.message); // Display Firestore error message
                 });
-
-            delete obj.password;
         })
         .catch((err) => {
-            alert(err.message);
-        })
-}
+            alert(err.message); // Display sign-up error message
+        });
+};

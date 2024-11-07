@@ -24,7 +24,7 @@ const auth = getAuth();
 window.login = () => {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    let upload = document.getElementById("upload")
+
 
     let obj = {
         email: email.value,

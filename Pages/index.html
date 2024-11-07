@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Popup Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Ensure that the modal is hidden by default */
+    .modal-hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- Gallery -->
+  <div class="flex gap-4">
+    <img src="https://images.unsplash.com/photo-1724253186705-33d8b51f0e82?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+         alt="Coffee Vibes" 
+         class="w-64 h-auto cursor-pointer transform hover:scale-105 transition-transform"
+         onclick="document.getElementById('popup').classList.remove('modal-hidden'); document.getElementById('modal-img').src='https://images.unsplash.com/photo-1724253186705-33d8b51f0e82?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; document.getElementById('modal-title').textContent='Coffee Vibes'; document.getElementById('modal-description').textContent='Its for test I\'m Uploading coffee Picture'">
+    <img src="https://images.unsplash.com/photo-1724093118783-4ca6f6a4918a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+         alt="SeaView Vibes" 
+         class="w-64 h-auto cursor-pointer transform hover:scale-105 transition-transform"
+         onclick="document.getElementById('popup').classList.remove('modal-hidden'); document.getElementById('modal-img').src='https://images.unsplash.com/photo-1724093118783-4ca6f6a4918a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; document.getElementById('modal-title').textContent='SeaView Vibes'; document.getElementById('modal-description').textContent='Its for test I\'m Uploading SeaView Picture'">
+  </div>
+
+  <!-- Modal -->
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center modal-hidden">
+    <div class="bg-white p-6 rounded-lg max-w-lg mx-4 relative">
+      <button onclick="document.getElementById('popup').classList.add('modal-hidden')" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-700">
+        &times;
+      </button>
+      <img id="modal-img" class="w-full h-auto rounded-lg mb-4">
+      <h2 id="modal-title" class="text-xl font-semibold mb-2"></h2>
+      <p id="modal-description" class="text-gray-700"></p>
+    </div>
+  </div>
+
+</body>
+</html>
